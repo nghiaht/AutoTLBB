@@ -32,6 +32,8 @@ class MainWindow : public QMainWindow
 
     void on_gameListTableWidget_itemClicked(QTableWidgetItem *item);
 
+    void on_gameListTableWidget_clicked(const QModelIndex &index);
+
   private:
     bool init();
     bool initAutoControlWidgets();

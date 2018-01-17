@@ -2,10 +2,9 @@
 #define INITCOPYAPP_HPP
 
 #include <QString>
-
-class QFileInfo;
-class QApplication;
-class QStringList;
+#include <QFileInfo>
+#include <QApplication>
+#include <QStringList>
 
 class InitCopyApp
 {

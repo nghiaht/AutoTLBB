@@ -62,6 +62,10 @@ bool MainWindow::init()
 {
   this->initAutoControlWidgets();
 
+  m_gamesWindowInfo.push_back(nullptr);
+  m_gamesWindowInfo.push_back(nullptr);
+  m_gamesWindowInfo.push_back(nullptr);
+  qDebug() << m_gamesWindowInfo.size();
   if (this->initGamesProcess())
   {
     this->initGamesPlayerList();
@@ -90,6 +94,8 @@ bool MainWindow::initAutoControlWidgets()
 bool MainWindow::initGamesPlayerList()
 {
   ui->gameListTableWidget->setRowCount(m_gamesWindowInfo.size());
+
+  return false;
   for (std::size_t i = 0; i < m_gamesWindowInfo.size(); i++)
   {
     auto gameWindowInfo = m_gamesWindowInfo.at(i);
@@ -181,8 +187,11 @@ bool MainWindow::initGamesProcess()
 
   for (const auto& gameWindowInfo : m_gamesWindowInfo)
   {
-    gameWindowInfo->getPlayer()->sendChatMsg("ssss");
-    qDebug() << "Sent";
+    if (gameWindowInfo != nullptr)
+    {
+      gameWindowInfo->getPlayer()->sendChatMsg("ssss");
+      qDebug() << "Sent";
+    }
   }
 
   return !m_gamesWindowInfo.empty();
@@ -209,5 +218,33 @@ void MainWindow::on_gameListTableWidget_itemClicked(QTableWidgetItem *item)
     }
 
     qDebug() << "Found";
+  }
+}
+
+void MainWindow::on_gameListTableWidget_clicked(const QModelIndex &index)
+{
+  for (std::size_t i = 0; i < m_autoControlWidgets.size(); i++)
+  {
+    auto widget = ui->autoControlTabWidget->widget(i);
+    if (widget == nullptr)
+    {
+      continue;
+    }
+
+    if (widget->isHidden())
+    {
+      continue;
+    }
+
+    GeneralTab* castWidget = reinterpret_cast<GeneralTab*>(widget);
+    if (castWidget == nullptr)
+    {
+      qDebug() << "Not Found";
+    }
+    else
+    {
+      qDebug() << castWidget->getTest();
+    }
+
   }
 }

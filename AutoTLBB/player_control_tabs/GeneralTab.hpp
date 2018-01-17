@@ -15,6 +15,10 @@ class GeneralTab : public QFrame
     explicit GeneralTab(QWidget *parent = 0);
     ~GeneralTab();
 
+  public:
+    char getTest() const{return m_a;};
+    char m_a = 'C';
+
   private:
     Ui::GeneralTab *ui;
 };

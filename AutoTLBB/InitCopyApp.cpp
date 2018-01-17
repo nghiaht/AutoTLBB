@@ -1,11 +1,7 @@
 #include "InitCopyApp.hpp"
 
-#include <QApplication>
-#include <QFileInfo>
 #include <QProcess>
 #include <QString>
-#include <QFile>
-#include <QDir>
 
 #include <QDebug>
 
