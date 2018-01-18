@@ -223,6 +223,7 @@ void MainWindow::on_gameListTableWidget_itemClicked(QTableWidgetItem *item)
 
 void MainWindow::on_gameListTableWidget_clicked(const QModelIndex &index)
 {
+  qDebug() << index.row();
   for (std::size_t i = 0; i < m_autoControlWidgets.size(); i++)
   {
     auto widget = ui->autoControlTabWidget->widget(i);
