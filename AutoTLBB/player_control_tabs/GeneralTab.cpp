@@ -6,8 +6,6 @@ GeneralTab::GeneralTab(QWidget *parent) :
   ui(new Ui::GeneralTab)
 {
   ui->setupUi(this);
-
-  m_a = 'b';
 }
 
 GeneralTab::~GeneralTab()

@@ -236,14 +236,18 @@ void MainWindow::on_gameListTableWidget_clicked(const QModelIndex &index)
       continue;
     }
 
-    GeneralTab* castWidget = reinterpret_cast<GeneralTab*>(widget);
-    if (castWidget == nullptr)
+    if (auto castWidget = dynamic_cast<GeneralTab*>(widget))
     {
-      qDebug() << "Not Found";
+    }
+    else if (auto castWidget = dynamic_cast<ItemTab*>(widget))
+    {
+    }
+    else if (auto castWidget = dynamic_cast<SkillTab*>(widget))
+    {
     }
     else
     {
-      qDebug() << castWidget->getTest();
+      qDebug() << "Not Found";
     }
 
   }
