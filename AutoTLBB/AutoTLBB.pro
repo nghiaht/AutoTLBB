@@ -31,16 +31,16 @@ CONFIG(release, debug|release) {
   DEFINES += QT_NO_DEBUG
 
   SOURCES += \
-        InitCopyApp.cpp
+    InitCopyApp.cpp
 
   HEADERS += \
-        InitCopyApp.hpp
+    InitCopyApp.hpp
 }
 
 SOURCES += \
-        main.cpp \
-        MainWindow.cpp \
-        Constants.cpp \
+    main.cpp \
+    MainWindow.cpp \
+    Constants.cpp \
     games_window/GameWindowInfo.cpp \
     games_window/Player.cpp \
     player_control_tabs/GeneralTab.cpp \
@@ -52,8 +52,8 @@ SOURCES += \
     games_window/settings/Skill.cpp
 
 HEADERS += \
-        MainWindow.hpp \
-        Constants.hpp \
+    MainWindow.hpp \
+    Constants.hpp \
     games_window/GameWindowInfo.hpp \
     games_window/Player.hpp \
     player_control_tabs/GeneralTab.hpp \
@@ -63,14 +63,15 @@ HEADERS += \
     games_window/settings/General.hpp \
     games_window/settings/Item.hpp \
     games_window/settings/Skill.hpp \
-    Preprocessor.hpp
+    Preprocessor.hpp \
+    player_control_tabs/SingletonTab.hpp
 
 FORMS += \
-        MainWindow.ui \
+    MainWindow.ui \
     player_control_tabs/GeneralTab.ui \
     player_control_tabs/ItemTab.ui \
     player_control_tabs/SkillTab.ui
 
 RESOURCES += \
-        Resources/style.qrc \
+    Resources/style.qrc \
     Resources/app_res.qrc

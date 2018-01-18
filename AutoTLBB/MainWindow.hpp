@@ -30,9 +30,7 @@ class MainWindow : public QMainWindow
   private slots:
     void on_actionReload_Player_List_triggered();
 
-    void on_gameListTableWidget_itemClicked(QTableWidgetItem *item);
-
-    void on_gameListTableWidget_clicked(const QModelIndex &index);
+    void on_gameListTableWidget_cellPressed(int row, int column);
 
   private:
     bool init();
