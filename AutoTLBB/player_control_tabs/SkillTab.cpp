@@ -3,8 +3,10 @@
 
 #include <QDebug>
 
+#include "games_window/GameWindowInfo.hpp"
+
 SkillTab::SkillTab(QWidget *parent) :
-  QFrame(parent),
+  TabAbstract(parent),
   ui(new Ui::SkillTab)
 {
   ui->setupUi(this);
@@ -13,4 +15,9 @@ SkillTab::SkillTab(QWidget *parent) :
 SkillTab::~SkillTab()
 {
   delete ui;
+}
+
+void SkillTab::onGameWindowInfoPressed(const GameWindowInfo* gameWindowInfo)
+{
+
 }

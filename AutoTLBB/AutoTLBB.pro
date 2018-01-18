@@ -49,7 +49,8 @@ SOURCES += \
     games_window/Settings.cpp \
     games_window/settings/General.cpp \
     games_window/settings/Item.cpp \
-    games_window/settings/Skill.cpp
+    games_window/settings/Skill.cpp \
+    player_control_tabs/TabAbstract.cpp
 
 HEADERS += \
     MainWindow.hpp \
@@ -64,7 +65,8 @@ HEADERS += \
     games_window/settings/Item.hpp \
     games_window/settings/Skill.hpp \
     Preprocessor.hpp \
-    player_control_tabs/SingletonTab.hpp
+    player_control_tabs/SingletonTab.hpp \
+    player_control_tabs/TabAbstract.hpp
 
 FORMS += \
     MainWindow.ui \

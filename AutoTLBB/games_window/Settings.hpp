@@ -2,6 +2,7 @@
 #define SETTINGS_HPP
 
 class GameWindowInfo;
+class Skill;
 
 class Settings
 {
@@ -10,6 +11,7 @@ class Settings
 
   private:
     const GameWindowInfo *m_gameWindowInfo;
+    Skill *m_skill;
 };
 
 #endif // SETTINGS_HPP

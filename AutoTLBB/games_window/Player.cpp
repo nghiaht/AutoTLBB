@@ -38,7 +38,12 @@ QString Player::getName() const
 
   for (int i = 0; i < name.size(); i++)
   {
-    name[i] = m_gameWindowInfo->readMemory<char>(adrs);
+    char nameChar = m_gameWindowInfo->readMemory<char>(adrs);
+    if (nameChar == '\0')
+    {
+      break;
+    }
+    name[i] = nameChar;
     *(adrs.end()-1) += 0x1;
   }
 
@@ -180,7 +185,7 @@ QString Player::getMenpaiName() const
       menpaiName = "";
       break;
     case 9:
-      menpaiName = "";
+      menpaiName = "Not Join Yet";
       break;
     case 10:
       menpaiName = "";

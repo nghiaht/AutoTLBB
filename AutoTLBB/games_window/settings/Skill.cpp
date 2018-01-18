@@ -2,5 +2,4 @@
 
 Skill::Skill()
 {
-
 }

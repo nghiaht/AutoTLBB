@@ -225,6 +225,7 @@ void MainWindow::on_gameListTableWidget_cellPressed(int row, int column)
     }
     else if (auto castWidget = dynamic_cast<SkillTab*>(widget))
     {
+      qDebug() << "Skill tab";
     }
     else
     {
