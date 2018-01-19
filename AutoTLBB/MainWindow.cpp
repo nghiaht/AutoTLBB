@@ -11,12 +11,14 @@
 
 #include <cstring>
 
+#include <Windows.h>
 #include <tchar.h>
 #include <psapi.h>
 
 #include "Constants.hpp"
 #include "games_window/GameWindowInfo.hpp"
 #include "games_window/Player.hpp"
+#include "player_control_tabs/TabAbstract.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
@@ -62,10 +64,6 @@ bool MainWindow::init()
 {
   this->initAutoControlWidgets();
 
-//  m_gamesWindowInfo.push_back(nullptr);
-//  m_gamesWindowInfo.push_back(nullptr);
-//  m_gamesWindowInfo.push_back(nullptr);
-  qDebug() << m_gamesWindowInfo.size();
   if (this->initGamesProcess())
   {
     this->initGamesPlayerList();
@@ -76,17 +74,21 @@ bool MainWindow::init()
 
 bool MainWindow::initAutoControlWidgets()
 {
-  m_autoControlWidgets["General"] = new GeneralTab(ui->autoControlTabWidget);
-  m_autoControlWidgets["Item"] = new ItemTab(ui->autoControlTabWidget);
-  m_autoControlWidgets["Skill"] = new SkillTab(ui->autoControlTabWidget);
+  m_autoControlWidgets["General"] = GeneralTab::getInstance();//new GeneralTab(ui->autoControlTabWidget);
+  m_autoControlWidgets["Item"] = ItemTab::getInstance();//new ItemTab(ui->autoControlTabWidget);
+  m_autoControlWidgets["Skill"] = SkillTab::getInstance();//new SkillTab(ui->autoControlTabWidget);
 
   for (const auto& widget : m_autoControlWidgets)
   {
+    for (int i = 0; i < ui->autoControlTabWidget->count(); i++)
+    {
+      if (ui->autoControlTabWidget->find(i) == widget.second)
+      {
+        continue;
+      }
+    }
     ui->autoControlTabWidget->addTab(widget.second, widget.first);
   }
-  qDebug() << ui->autoControlTabWidget->widget(1)->isHidden();
-  qDebug() << ui->autoControlTabWidget->widget(2)->isHidden();
-  qDebug() << ui->autoControlTabWidget->widget(0)->isHidden();
 
   return true;
 }
@@ -162,7 +164,7 @@ static BOOL CALLBACK EnumWindowsProcCallback(HWND hwnd, LPARAM lParam)
       continue;
     }
 
-    handle = ::OpenProcess(READ_CONTROL | PROCESS_ALL_ACCESS | PROCESS_VM_READ, FALSE, processId);
+    handle = ::OpenProcess(PROCESS_ALL_ACCESS, FALSE, processId);
     if (handle == nullptr)
     {
       qDebug() << "Can not open game";
@@ -199,10 +201,10 @@ bool MainWindow::initGamesProcess()
 
 void MainWindow::on_actionReload_Player_List_triggered()
 {
-  this->init();
+  this->initGamesPlayerList();
 }
 
-void MainWindow::on_gameListTableWidget_cellPressed(int row, int column)
+void MainWindow::on_gameListTableWidget_cellPressed(int row, int /* column */)
 {
   for (std::size_t i = 0; i < m_autoControlWidgets.size(); i++)
   {
@@ -217,19 +219,13 @@ void MainWindow::on_gameListTableWidget_cellPressed(int row, int column)
       continue;
     }
 
-    if (auto castWidget = dynamic_cast<GeneralTab*>(widget))
+    if (auto castWidget = dynamic_cast<TabAbstract*>(widget))
     {
-    }
-    else if (auto castWidget = dynamic_cast<ItemTab*>(widget))
-    {
-    }
-    else if (auto castWidget = dynamic_cast<SkillTab*>(widget))
-    {
-      qDebug() << "Skill tab";
+      castWidget->onGameWindowInfoPressed(m_gamesWindowInfo.at(row));
     }
     else
     {
-      qDebug() << "Not Found";
+      qDebug() << "Not found control tab";
     }
 
   }

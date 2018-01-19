@@ -5,6 +5,7 @@
 
 #include <Windows.h>
 #include "../Preprocessor.hpp"
+#include "../player_control_tabs/GeneralTab.hpp"
 
 class Player;
 class Settings;

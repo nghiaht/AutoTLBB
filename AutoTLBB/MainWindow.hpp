@@ -6,17 +6,15 @@
 #include <vector>
 #include <map>
 
-#include <Windows.h>
-
-class QTableWidgetItem;
 class GameWindowInfo;
+class TabAbstract;
 
 namespace Ui {
 class MainWindow;
 }
 
 typedef std::vector<GameWindowInfo*> ListGameWindowInfo;
-typedef std::map<QString, QWidget*> ListAutoControlWidget;
+typedef std::map<QString, TabAbstract*> ListAutoControlWidget;
 
 class MainWindow : public QMainWindow
 {

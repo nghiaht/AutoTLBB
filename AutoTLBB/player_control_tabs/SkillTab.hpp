@@ -1,30 +1,30 @@
 #ifndef SKILLTAB_HPP
 #define SKILLTAB_HPP
 
-#include "TabAbstract.hpp"
+#include "SingletonTab.hpp"
 
 namespace Ui {
   class SkillTab;
 }
 
-class SkillTab : public TabAbstract
+class SkillTab : public SingletonTab<SkillTab>
 {
   public:
     Q_OBJECT
 
-  public:
+  protected:
     explicit SkillTab(QWidget *parent = 0);
 //    SkillTab();
     ~SkillTab();
 
   public:
-    virtual void onGameWindowInfoPressed(const GameWindowInfo* gameWindowInfo) override;
+    virtual void onGameWindowInfoPressed(const GameWindowInfo* /* gameWindowInfo */) override;
 
   private:
     Ui::SkillTab *ui;
 
   public:
-//    friend class SingletonTab<SkillTab>;
+    friend class SingletonTab<SkillTab>;
 };
 
 #endif // SKILLTAB_HPP

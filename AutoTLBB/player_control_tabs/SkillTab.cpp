@@ -5,8 +5,11 @@
 
 #include "games_window/GameWindowInfo.hpp"
 
+template<>
+SkillTab *SingletonTab<SkillTab>::s_instance = nullptr;
+
 SkillTab::SkillTab(QWidget *parent) :
-  TabAbstract(parent),
+//  TabAbstract(parent),
   ui(new Ui::SkillTab)
 {
   ui->setupUi(this);

@@ -5,7 +5,7 @@
   private: \
   varType colName; \
   public: \
-  varType get##funcName() { \
+  varType get##funcName() const { \
   return colName; \
   } \
   void set##funcName(const varType var) { \
@@ -16,7 +16,7 @@
   private: \
   varType colName; \
   public: \
-  varType get##funcName() { \
+  varType get##funcName() const { \
   return colName; \
   } \
   void set##funcName(varType var) { \
@@ -27,7 +27,7 @@
   private: \
   varType colName; \
   public: \
-  varType get##funcName() { \
+  varType get##funcName() const { \
   return colName; \
   } \
   void set##funcName(varType var) { \
