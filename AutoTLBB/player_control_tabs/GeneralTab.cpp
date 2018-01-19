@@ -9,7 +9,7 @@
 template<>
 GeneralTab *SingletonTab<GeneralTab>::s_instance = nullptr;
 
-GeneralTab::GeneralTab(QWidget *parent) :
+GeneralTab::GeneralTab(QWidget* /* parent */) :
 //  QFrame(parent),
   ui(new Ui::GeneralTab)
 {

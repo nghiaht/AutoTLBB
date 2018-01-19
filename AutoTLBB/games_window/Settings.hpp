@@ -1,7 +1,10 @@
 #ifndef SETTINGS_HPP
 #define SETTINGS_HPP
 
+#include "../Preprocessor.hpp"
+
 class GameWindowInfo;
+
 class Skill;
 
 class Settings
@@ -11,7 +14,7 @@ class Settings
 
   private:
     const GameWindowInfo *m_gameWindowInfo;
-    Skill *m_skill;
+    APP_SYNTHESIZE_PTR(Skill, m_skill, Skill)
 };
 
 #endif // SETTINGS_HPP

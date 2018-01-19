@@ -59,8 +59,8 @@ class GameWindowInfo
     APP_SYNTHESIZE(HWND, m_hwnd, Hwnd)
     APP_SYNTHESIZE(HANDLE, m_handle, Handle)
     APP_SYNTHESIZE(DWORD, m_processId, ProcessId)
-    APP_SYNTHESIZE_PTR(Player*, m_player, Player)
-    APP_SYNTHESIZE_PTR(Settings*, m_settings, Settings)
+    APP_SYNTHESIZE_PTR(Player, m_player, Player)
+    APP_SYNTHESIZE_PTR(Settings, m_settings, Settings)
 
   private:
     friend QDebug operator<<(QDebug qdb, const GameWindowInfo& gameWindowInfo);

@@ -21,84 +21,84 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="0">
-    <widget class="QCheckBox" name="checkBox_3">
+    <widget class="QCheckBox" name="f3CheckBox">
      <property name="text">
       <string>F3</string>
      </property>
     </widget>
    </item>
    <item row="3" column="0">
-    <widget class="QCheckBox" name="checkBox_4">
+    <widget class="QCheckBox" name="f4CheckBox">
      <property name="text">
       <string>F4</string>
      </property>
     </widget>
    </item>
    <item row="4" column="0">
-    <widget class="QCheckBox" name="checkBox_5">
+    <widget class="QCheckBox" name="f5CheckBox">
      <property name="text">
       <string>F5</string>
      </property>
     </widget>
    </item>
    <item row="5" column="0">
-    <widget class="QCheckBox" name="checkBox_6">
+    <widget class="QCheckBox" name="f6CheckBox">
      <property name="text">
       <string>F6</string>
      </property>
     </widget>
    </item>
    <item row="0" column="0">
-    <widget class="QCheckBox" name="checkBox">
+    <widget class="QCheckBox" name="f1CheckBox">
      <property name="text">
       <string>F1</string>
      </property>
     </widget>
    </item>
    <item row="1" column="0">
-    <widget class="QCheckBox" name="checkBox_2">
+    <widget class="QCheckBox" name="f2CheckBox">
      <property name="text">
       <string>F2</string>
      </property>
     </widget>
    </item>
    <item row="0" column="1">
-    <widget class="QCheckBox" name="checkBox_7">
+    <widget class="QCheckBox" name="f7CheckBox">
      <property name="text">
       <string>F7</string>
      </property>
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="QCheckBox" name="checkBox_8">
+    <widget class="QCheckBox" name="f8CheckBox">
      <property name="text">
       <string>F8</string>
      </property>
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="QCheckBox" name="checkBox_9">
+    <widget class="QCheckBox" name="f9CheckBox">
      <property name="text">
       <string>F9</string>
      </property>
     </widget>
    </item>
    <item row="3" column="1">
-    <widget class="QCheckBox" name="checkBox_10">
+    <widget class="QCheckBox" name="f10CheckBox">
      <property name="text">
       <string>F10</string>
      </property>
     </widget>
    </item>
    <item row="4" column="1">
-    <widget class="QCheckBox" name="checkBox_11">
+    <widget class="QCheckBox" name="f11CheckBox">
      <property name="text">
       <string>F11</string>
      </property>
     </widget>
    </item>
    <item row="5" column="1">
-    <widget class="QCheckBox" name="checkBox_12">
+    <widget class="QCheckBox" name="f12CheckBox">
      <property name="text">
       <string>F12</string>
      </property>

@@ -27,7 +27,6 @@ MainWindow::MainWindow(QWidget *parent) :
   ui->setupUi(this);
 
   this->setMinimumSize(this->size());
-//  ui->gameListTableWidget->verticalHeader()->setVisible(false);
   ui->gameListTableWidget->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
 
   {
@@ -74,9 +73,9 @@ bool MainWindow::init()
 
 bool MainWindow::initAutoControlWidgets()
 {
-  m_autoControlWidgets["General"] = GeneralTab::getInstance();//new GeneralTab(ui->autoControlTabWidget);
-  m_autoControlWidgets["Item"] = ItemTab::getInstance();//new ItemTab(ui->autoControlTabWidget);
-  m_autoControlWidgets["Skill"] = SkillTab::getInstance();//new SkillTab(ui->autoControlTabWidget);
+  m_autoControlWidgets["General"] = GeneralTab::getInstance();
+  m_autoControlWidgets["Item"] = ItemTab::getInstance();
+  m_autoControlWidgets["Skill"] = SkillTab::getInstance();
 
   for (const auto& widget : m_autoControlWidgets)
   {
@@ -214,13 +213,9 @@ void MainWindow::on_gameListTableWidget_cellPressed(int row, int /* column */)
       continue;
     }
 
-    if (widget->isHidden())
-    {
-      continue;
-    }
-
     if (auto castWidget = dynamic_cast<TabAbstract*>(widget))
     {
+      castWidget->setCurrentGameWindowInfo(m_gamesWindowInfo.at(row));
       castWidget->onGameWindowInfoPressed(m_gamesWindowInfo.at(row));
     }
     else

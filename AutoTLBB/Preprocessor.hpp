@@ -14,12 +14,12 @@
 
 #define APP_SYNTHESIZE_PTR(varType,colName,funcName) \
   private: \
-  varType colName; \
+  varType *colName; \
   public: \
-  varType get##funcName() const { \
+  varType* get##funcName() const { \
   return colName; \
   } \
-  void set##funcName(varType var) { \
+  void set##funcName(varType* var) { \
   colName = var;\
   }
 

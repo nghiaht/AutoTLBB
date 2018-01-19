@@ -5,7 +5,7 @@
   private: \
   bool colName = false; \
   public: \
-  bool get##funcName() { \
+  bool get##funcName() const { \
   return colName; \
   } \
   void set##funcName(const bool var) { \
