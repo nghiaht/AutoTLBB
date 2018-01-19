@@ -95,6 +95,8 @@ int Player::getHp() const
     0x145EB34, 0xC, 0x1EC, 0x4, 0x2760
   };
 
+  m_gameWindowInfo->readMemory<int>('f', 0x145EB34, 0xC, 0x1EC, 0x4, 0x2760);
+
   return m_gameWindowInfo->readMemory<int>(adrs);
 }
 

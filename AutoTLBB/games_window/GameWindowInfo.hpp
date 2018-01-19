@@ -56,6 +56,24 @@ class GameWindowInfo
       return this->readMemory<T>(nextOffset);
     }
 
+    template<typename T, typename Adr, typename... Adrs>
+    T readMemory(char f, const Adr first_adr, const Adrs... adrs) const
+    {
+      const auto adrsArr = {adrs...};
+
+      int i = 0;
+//      Adr nextOffset = adrsArr[i];
+      for (const auto adr : adrsArr)
+      {
+        i++;
+        qDebug() << adr;
+      }
+
+      T value;
+
+      return value;
+    }
+
   private:
     APP_SYNTHESIZE(HWND, m_hwnd, Hwnd)
     APP_SYNTHESIZE(HANDLE, m_handle, Handle)
