@@ -74,7 +74,6 @@ bool MainWindow::init()
     return false;
   }
 
-
   if (!this->initGamesPlayerList())
   {
     return false;
@@ -124,11 +123,10 @@ bool MainWindow::initGamesPlayerList()
   for (std::size_t i = 0; i < m_gamesWindowInfo.size(); i++)
   {
     auto gameWindowInfo = m_gamesWindowInfo.at(i);
-    ::SetWindowText(gameWindowInfo->getHwnd(), TEXT("Test TLBB Change Win Title"));
 
     auto player = gameWindowInfo->getPlayer();
 
-    qDebug() << *player;
+    gameWindowInfo->setWindowName(player->getName());
 
     auto no = new QTableWidgetItem(QString::number(i + 1));
     ui->gameListTableWidget->setItem(i, 0, no);
@@ -149,8 +147,6 @@ bool MainWindow::initGamesPlayerList()
     ui->gameListTableWidget->setItem(i, 5, mode);
 
     ui->gameListTableWidget->setSizeAdjustPolicy(QTableWidget::QAbstractItemView::AdjustToContents);
-
-    qDebug() << "Added";
   }
 
   return true;
@@ -239,8 +235,9 @@ void MainWindow::on_gameListTableWidget_cellPressed(int row, int /* column */)
 
     if (auto castWidget = dynamic_cast<TabAbstract*>(widget))
     {
-      castWidget->setCurrentGameWindowInfo(m_gamesWindowInfo.at(row));
-      castWidget->onGameWindowInfoPressed(m_gamesWindowInfo.at(row));
+      auto currentGW = m_gamesWindowInfo.at(row);
+      castWidget->setCurrentGameWindowInfo(currentGW);
+      castWidget->onGameWindowInfoPressed(currentGW);
     }
     else
     {

@@ -35,3 +35,8 @@ void GameWindowInfo::postMessage(const UINT msg, const WPARAM wParam, const LPAR
 {
   ::PostMessage(m_hwnd, msg, wParam, lParam);
 }
+
+void GameWindowInfo::setWindowName(const QString& name)
+{
+  ::SetWindowText(m_hwnd, name.toStdWString().c_str());
+}

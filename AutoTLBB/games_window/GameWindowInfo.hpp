@@ -19,6 +19,7 @@ class GameWindowInfo
   public:
     void sendMessage(const UINT msg, const WPARAM wParam, const LPARAM lParam) const;
     void postMessage(const UINT msg, const WPARAM wParam, const LPARAM lParam) const;
+    void setWindowName(const QString& name);
 
   public:
     template<typename T>
