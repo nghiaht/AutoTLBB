@@ -1,16 +1,7 @@
 #ifndef SKILL_HPP
 #define SKILL_HPP
 
-#define APP_SYNTHESIZE_BOOL(colName,funcName) \
-  private: \
-  bool colName = false; \
-  public: \
-  bool get##funcName() const { \
-  return colName; \
-  } \
-  void set##funcName(const bool var) { \
-  colName = var;\
-  }
+#include "../../Preprocessor.hpp"
 
 class Skill
 {
@@ -30,7 +21,6 @@ class Skill
     APP_SYNTHESIZE_BOOL(m_f10, F10)
     APP_SYNTHESIZE_BOOL(m_f11, F11)
     APP_SYNTHESIZE_BOOL(m_f12, F12)
-
 };
 
 #endif // SKILL_HPP

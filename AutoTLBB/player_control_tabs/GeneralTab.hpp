@@ -18,6 +18,9 @@ class GeneralTab : public SingletonTab<GeneralTab>
   public:
     virtual void onGameWindowInfoPressed(const GameWindowInfo* gWI) override;
 
+  private slots:
+    void on_enableAutoCheckBox_toggled(bool checked);
+
   private:
     Ui::GeneralTab *ui;
 

@@ -34,4 +34,15 @@
   colName = var;\
   }
 
+#define APP_SYNTHESIZE_BOOL(colName,funcName) \
+  private: \
+  bool colName = false; \
+  public: \
+  bool get##funcName() const { \
+  return colName; \
+  } \
+  void set##funcName(const bool var) { \
+  colName = var;\
+  }
+
 #endif // PREPROCESSOR_HPP
