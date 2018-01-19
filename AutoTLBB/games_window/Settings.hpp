@@ -13,6 +13,7 @@ class Settings
 {
   public:
     Settings(const GameWindowInfo* gWI);
+    ~Settings();
 
   private:
     const GameWindowInfo *m_gameWindowInfo;

@@ -41,6 +41,10 @@ MainWindow::MainWindow(QWidget *parent) :
 //    styleSheet.close();
   }
 
+  m_autoControlWidgets["General"] = GeneralTab::getInstance();
+  m_autoControlWidgets["Item"] = ItemTab::getInstance();
+  m_autoControlWidgets["Skill"] = SkillTab::getInstance();
+
   this->init();
 }
 
@@ -63,28 +67,48 @@ bool MainWindow::init()
 {
   this->initAutoControlWidgets();
 
-  if (this->initGamesProcess())
+  ui->autoControlTabWidget->setEnabled(false);
+
+  if (!this->initGamesProcess())
   {
-    this->initGamesPlayerList();
+    return false;
   }
+
+
+  if (!this->initGamesPlayerList())
+  {
+    return false;
+  }
+
+  for (int i = 0; i < ui->autoControlTabWidget->count(); i++)
+  {
+    auto widget = ui->autoControlTabWidget->widget(i);
+    if (auto castWidget = dynamic_cast<TabAbstract*>(widget))
+    {
+      castWidget->setCurrentGameWindowInfo(*m_gamesWindowInfo.cbegin());
+    }
+  }
+
+  ui->autoControlTabWidget->setEnabled(true);
 
   return true;
 }
 
 bool MainWindow::initAutoControlWidgets()
 {
-  m_autoControlWidgets["General"] = GeneralTab::getInstance();
-  m_autoControlWidgets["Item"] = ItemTab::getInstance();
-  m_autoControlWidgets["Skill"] = SkillTab::getInstance();
-
   for (const auto& widget : m_autoControlWidgets)
   {
+    bool tabExists = false;
     for (int i = 0; i < ui->autoControlTabWidget->count(); i++)
     {
       if (ui->autoControlTabWidget->find(i) == widget.second)
       {
-        continue;
+        tabExists = true;
       }
+    }
+    if (tabExists)
+    {
+      continue;
     }
     ui->autoControlTabWidget->addTab(widget.second, widget.first);
   }
@@ -96,7 +120,7 @@ bool MainWindow::initGamesPlayerList()
 {
   ui->gameListTableWidget->setRowCount(m_gamesWindowInfo.size());
 
-//  return false;
+  //  return false;
   for (std::size_t i = 0; i < m_gamesWindowInfo.size(); i++)
   {
     auto gameWindowInfo = m_gamesWindowInfo.at(i);
@@ -200,7 +224,7 @@ bool MainWindow::initGamesProcess()
 
 void MainWindow::on_actionReload_Player_List_triggered()
 {
-  this->initGamesPlayerList();
+  this->init();
 }
 
 void MainWindow::on_gameListTableWidget_cellPressed(int row, int /* column */)

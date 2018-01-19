@@ -13,3 +13,10 @@ Settings::Settings(const GameWindowInfo* gWI)
   m_general = new General();
   m_item = new Item();
 }
+
+Settings::~Settings()
+{
+  delete m_skill;
+  delete m_general;
+  delete m_item;
+}
