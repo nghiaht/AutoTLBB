@@ -1,6 +1,5 @@
-https://ohaynhi.wordpress.com/2013/08/28/base-address-tlbb-cap-nhat-thuong-xuyen/
-
 ## Cập nhật ngày 15/09/2013
+https://ohaynhi.wordpress.com/2013/08/28/base-address-tlbb-cap-nhat-thuong-xuyen/
 
 1. Mục tiêu (target):   base address: [0x84AD18,0x0,0xC,0x64]
 
@@ -27,3 +26,23 @@ Thu thập thêm từ LanPhong.Net:
 * Lưu ý danh cho 10 – Máu quái:
 
 Khi mục tiêu là boss hoặc mục tiêu chạy ra ngoài tầm nhìn thì target vẫn =1 máu không thay đổi, ta dùng 1 biến đếm từ 1.. đến .. 10 đếm các lần tấn công nếu quá 10 lần mà máu ko tụt thì chuyển mục tiêu – cách này sẽ tránh nhân vật đứng yên khi rơi vào các trường hợp đặc biệt trên.
+
+## Base address TLBB cập nhật 2013-10-09
+https://ohaynhi.wordpress.com/2013/10/09/base-address-tlbb-cap-nhat-2013-10-09/
+
+Char current HP:  [0x87D5F4, 0xC, 0x1DC, 0x4, 0x241C]
+
+
+Char max HP:  [0x87D5F4, 0xC, 0x1DC, 0x4, 0x2490]
+
+Char current MP:  [0x87D5F4, 0xC, 0x1DC, 0x4, 0x2420]
+
+Char max MP:  [0x87D5F4, 0xC, 0x1DC, 0x4, 0x2494]
+
+Char X : [0x87D548, 0x5C]
+
+Char Y : [0x87D548, 0x64]
+
+isTarget: [0x84bf48,0x0,0xC,0x64]
+
+Target HP: [0x84bf48,0x0,0xc,0x60,0x1c,0x10,0x1c,0x8,0x1c,0x0,0x2b0]
